@@ -1,44 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-import SectionCard from '../components/SectionCard.astro';
-import { site } from '../data/site';
+import PageShell from '../components/PageShell.astro';
+
+const charts = [
+  {
+    title: 'Publishing cadence',
+    subtitle: 'Expected update rhythm by section',
+    chart: `overview   | weekly\ncrime      | monthly\neducation  | quarterly\ngovernment | monthly`
+  },
+  {
+    title: 'Source mix',
+    subtitle: 'Current weighting of source categories',
+    chart: `Administrative records | ████████████ 48%\nState datasets          | ██████████ 39%\nFOIA/public requests    | ████ 13%`
+  },
+  {
+    title: 'Data QA checklist',
+    subtitle: 'Completion rate in the current cycle',
+    chart: `Schema checks   | complete\nMissing data   | complete\nOutlier review | in progress\nPeer review    | queued`
+  },
+  {
+    title: 'Coverage footprint',
+    subtitle: 'Topic distribution of posted briefs',
+    chart: `crime      | 42%\neducation  | 25%\ngovernment | 23%\nother      | 10%`
+  }
+];
 ---
 
-<BaseLayout title="About | Wayne Public Safety Monitor" description={site.mission}>
-  <PageHero eyebrow="About" title="About the project" intro={site.mission} />
-
-  <section class="section">
-    <div class="container two-col">
-      <SectionCard title="Purpose">
-        <p>
-          Wayne Public Safety Monitor is designed as an independent, nonpartisan public-safety data project for Wayne County and its municipalities. The goal is to make fragmented public information easier to find, compare, and understand.
-        </p>
-      </SectionCard>
-
-      <SectionCard title="Intended audience">
-        <ul>
-          <li>Residents looking for clear local context</li>
-          <li>Journalists and civic groups needing source-linked data</li>
-          <li>Public officials and community stakeholders tracking trends</li>
-          <li>Researchers and practitioners who want a local reference point</li>
-        </ul>
-      </SectionCard>
-
-      <SectionCard title="Editorial posture">
-        <p>
-          The site should stay measured, local, and source-based. It should avoid sensational framing and clearly distinguish between underlying data, summary analysis, and unanswered questions.
-        </p>
-      </SectionCard>
-
-      <SectionCard title="Contact">
-        <p>
-          Questions, corrections, or source suggestions can be sent by email.
-        </p>
-        <p>
-          Email: <a href={`mailto:${site.email}`}>{site.email}</a>
-        </p>
-      </SectionCard>
-    </div>
-  </section>
+<BaseLayout title="About | Wayne Data Terminal" description="About the project and how data is handled.">
+  <PageShell
+    section="About"
+    title="What this project is"
+    intro="Wayne Data Terminal is intentionally austere: coding typography, narrow scope, and explicit limits."
+    charts={charts}
+  />
 </BaseLayout>
