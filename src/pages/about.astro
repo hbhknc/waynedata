@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageShell from '../components/PageShell.astro';
+import { buildSeriesChart, formatNumber } from '../lib/terminalChart';
 
 const charts = [
   {
@@ -11,17 +12,32 @@ const charts = [
   {
     title: 'Source mix',
     subtitle: 'Current weighting of source categories',
-    chart: `Administrative records | ████████████ 48%\nState datasets          | ██████████ 39%\nFOIA/public requests    | ████ 13%`
+    chart: buildSeriesChart(
+      [
+        { label: 'Admin records', value: 48 },
+        { label: 'State data', value: 39 },
+        { label: 'Public reqs', value: 13 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`
+    )
   },
   {
     title: 'Data QA checklist',
     subtitle: 'Completion rate in the current cycle',
-    chart: `Schema checks   | complete\nMissing data   | complete\nOutlier review | in progress\nPeer review    | queued`
+    chart: `Schema checks | complete\nMissing data | complete\nOutlier review| in progress\nPeer review  | queued`
   },
   {
     title: 'Coverage footprint',
     subtitle: 'Topic distribution of posted briefs',
-    chart: `crime      | 42%\neducation  | 25%\ngovernment | 23%\nother      | 10%`
+    chart: buildSeriesChart(
+      [
+        { label: 'crime', value: 42 },
+        { label: 'education', value: 25 },
+        { label: 'government', value: 23 },
+        { label: 'other', value: 10 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`
+    )
   }
 ];
 ---

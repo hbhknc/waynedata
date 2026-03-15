@@ -1,27 +1,60 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageShell from '../components/PageShell.astro';
+import { buildSeriesChart, formatNumber } from '../lib/terminalChart';
+
+const populationRows = [
+  { label: '2019', value: 117000 },
+  { label: '2020', value: 116000 },
+  { label: '2021', value: 116000 },
+  { label: '2022', value: 115000 },
+  { label: '2023', value: 115000 }
+];
+
+const incomeRows = [
+  { label: '2019', value: 49100 },
+  { label: '2020', value: 50800 },
+  { label: '2021', value: 52100 },
+  { label: '2022', value: 53700 },
+  { label: '2023', value: 54200 }
+];
+
+const unemploymentRows = [
+  { label: '2019', value: 4.0 },
+  { label: '2020', value: 7.9 },
+  { label: '2021', value: 5.1 },
+  { label: '2022', value: 4.2 },
+  { label: '2023', value: 4.1 }
+];
+
+const rentBurdenRows = [
+  { label: '2019', value: 45 },
+  { label: '2020', value: 46 },
+  { label: '2021', value: 47 },
+  { label: '2022', value: 48 },
+  { label: '2023', value: 49 }
+];
 
 const charts = [
   {
     title: 'Population pulse',
     subtitle: 'Estimated county population (2019-2023)',
-    chart: `2019 | ████████████████████ 117k\n2020 | ███████████████████▉ 116k\n2021 | ███████████████████▊ 116k\n2022 | ███████████████████▋ 115k\n2023 | ███████████████████▌ 115k`
+    chart: buildSeriesChart(populationRows, (value) => `${Math.round(value / 1000)}k`)
   },
   {
     title: 'Median household income',
     subtitle: 'Inflation-adjusted estimate',
-    chart: `2019 | $49,100\n2020 | $50,800\n2021 | $52,100\n2022 | $53,700\n2023 | $54,200`
+    chart: buildSeriesChart(incomeRows, (value) => `$${formatNumber(value, 0)}`)
   },
   {
     title: 'Unemployment trend',
     subtitle: 'Annual average unemployment rate',
-    chart: `2019 | 4.0%\n2020 | 7.9%\n2021 | 5.1%\n2022 | 4.2%\n2023 | 4.1%`
+    chart: buildSeriesChart(unemploymentRows, (value) => `${formatNumber(value, 1)}%`)
   },
   {
     title: 'Housing burden',
     subtitle: 'Share of renters paying >30% income on housing',
-    chart: `2019 | ████████████ 45%\n2020 | ████████████▎ 46%\n2021 | ████████████▋ 47%\n2022 | █████████████ 48%\n2023 | █████████████▍ 49%`
+    chart: buildSeriesChart(rentBurdenRows, (value) => `${formatNumber(value, 0)}%`)
   }
 ];
 ---

@@ -1,36 +1,79 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageShell from '../components/PageShell.astro';
+import { buildSeriesChart, barForValue, formatNumber, MAX_BAR_WIDTH } from '../lib/terminalChart';
+
+import violentSeries from '../data/crime/wayne-county/violent-crime.series.json';
+import violentSummary from '../data/crime/wayne-county/violent-crime.summary.json';
+import indexSeries from '../data/crime/wayne-county/index-crime-rate.series.json';
+import indexSummary from '../data/crime/wayne-county/index-crime-rate.summary.json';
+import propertySeries from '../data/crime/wayne-county/property-crime-rate.series.json';
+import propertySummary from '../data/crime/wayne-county/property-crime-rate.summary.json';
+
+type SeriesPoint = {
+  year: number;
+  rate: number;
+  partial?: boolean;
+};
+
+const buildRateSeries = (points: SeriesPoint[], years = 8) =>
+  buildSeriesChart(
+    points.slice(-years).map((point) => ({
+      label: String(point.year),
+      value: point.rate,
+      note: point.partial ? '*' : undefined
+    })),
+    (value) => formatNumber(value, 1)
+  );
+
+const buildSummaryChart = () => {
+  const summaries = [
+    { label: 'Violent', data: violentSummary },
+    { label: 'Index', data: indexSummary },
+    { label: 'Property', data: propertySummary }
+  ];
+
+  const currentRates = summaries.map(({ data }) => data.current_rate);
+  const minRate = Math.min(...currentRates);
+  const maxRate = Math.max(...currentRates);
+
+  return summaries
+    .map(({ label, data }) => {
+      const bar = barForValue(data.current_rate, minRate, maxRate, MAX_BAR_WIDTH);
+      return `${label.padEnd(8)} | ${bar} | ${data.current_year}: ${formatNumber(data.current_rate, 1)} | 5Y ${data.five_year_change_pct}%`;
+    })
+    .join('\n');
+};
 
 const charts = [
   {
-    title: 'Violent crime rate',
-    subtitle: 'Incidents per 100,000 residents',
-    chart: `2019 | 405\n2020 | 429\n2021 | 447\n2022 | 434\n2023 | 421`
+    title: 'Violent crime rate (NCSBI Table 6)',
+    subtitle: 'Wayne County annual rate per 100,000 residents (last 8 years)',
+    chart: buildRateSeries(violentSeries.points)
   },
   {
-    title: 'Property crime rate',
-    subtitle: 'Incidents per 100,000 residents',
-    chart: `2019 | 2,867\n2020 | 2,744\n2021 | 2,590\n2022 | 2,471\n2023 | 2,438`
+    title: 'Index crime rate (NCSBI Table 6)',
+    subtitle: 'Wayne County annual rate per 100,000 residents (last 8 years)',
+    chart: buildRateSeries(indexSeries.points)
   },
   {
-    title: 'Clearance rate',
-    subtitle: 'Share of index crimes cleared',
-    chart: `2019 | ████████▎ 41%\n2020 | ████████▌ 42%\n2021 | ████████▉ 44%\n2022 | ████████▋ 43%\n2023 | █████████ 45%`
+    title: 'Property crime rate (NCSBI Table 6)',
+    subtitle: 'Wayne County annual rate per 100,000 residents (last 8 years)',
+    chart: buildRateSeries(propertySeries.points)
   },
   {
-    title: 'Calls for service',
-    subtitle: 'Sheriff + municipal combined (thousands)',
-    chart: `2019 | ███████████████ 156k\n2020 | ███████████████▎ 158k\n2021 | ███████████████▌ 160k\n2022 | ███████████████▏ 157k\n2023 | ███████████████ 156k`
+    title: 'Current year snapshot from summaries',
+    subtitle: '2024 level + five-year change (%)',
+    chart: `${buildSummaryChart()}\n\n* 2018 value in source series is flagged as partial-year data.`
   }
 ];
 ---
 
-<BaseLayout title="Crime | Wayne Data Terminal" description="Crime dashboard with four charts.">
+<BaseLayout title="Crime | Wayne Data Terminal" description="Crime dashboard with Wayne County NCSBI annual rate data.">
   <PageShell
     section="Crime"
     title="Crime signals"
-    intro="Four core indicators for trend monitoring, without narrative bloat."
+    intro="Sourced from NCSBI annual summaries (Table 6). Displaying real Wayne County series values; 2018 is flagged as partial-year in source reporting."
     charts={charts}
   />
 </BaseLayout>

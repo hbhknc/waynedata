@@ -1,27 +1,68 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageShell from '../components/PageShell.astro';
+import { buildSeriesChart, formatNumber } from '../lib/terminalChart';
 
 const charts = [
   {
     title: 'Graduation rate',
     subtitle: '4-year cohort completion',
-    chart: `2019 | 85.7%\n2020 | 86.2%\n2021 | 87.9%\n2022 | 88.4%\n2023 | 88.9%`
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 85.7 },
+        { label: '2020', value: 86.2 },
+        { label: '2021', value: 87.9 },
+        { label: '2022', value: 88.4 },
+        { label: '2023', value: 88.9 }
+      ],
+      (value) => `${formatNumber(value, 1)}%`,
+      { min: 0, max: 100 }
+    )
   },
   {
     title: 'Reading proficiency',
     subtitle: 'Grade-level benchmark, district aggregate',
-    chart: `2019 | ███████████ 54%\n2020 | █████████▉ 49%\n2021 | ██████████▍ 52%\n2022 | ███████████ 55%\n2023 | ███████████▎ 56%`
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 54 },
+        { label: '2020', value: 49 },
+        { label: '2021', value: 52 },
+        { label: '2022', value: 55 },
+        { label: '2023', value: 56 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`,
+      { min: 0, max: 100 }
+    )
   },
   {
     title: 'Math proficiency',
     subtitle: 'Grade-level benchmark, district aggregate',
-    chart: `2019 | ██████████ 50%\n2020 | ████████▊ 44%\n2021 | █████████▏ 46%\n2022 | █████████▊ 49%\n2023 | ██████████▎ 51%`
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 50 },
+        { label: '2020', value: 44 },
+        { label: '2021', value: 46 },
+        { label: '2022', value: 49 },
+        { label: '2023', value: 51 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`,
+      { min: 0, max: 100 }
+    )
   },
   {
     title: 'Chronic absenteeism',
     subtitle: 'Students missing 10%+ instructional days',
-    chart: `2019 | 19%\n2020 | 23%\n2021 | 26%\n2022 | 24%\n2023 | 21%`
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 19 },
+        { label: '2020', value: 23 },
+        { label: '2021', value: 26 },
+        { label: '2022', value: 24 },
+        { label: '2023', value: 21 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`,
+      { min: 0, max: 100 }
+    )
   }
 ];
 ---

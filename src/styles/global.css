@@ -90,7 +90,7 @@ h1 {
 
 .chart-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -143,6 +143,10 @@ h1 {
 }
 
 @media (max-width: 760px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
   .site-header__inner,
   .site-footer__inner {
     grid-template-columns: 1fr;
