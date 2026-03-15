@@ -1,0 +1,65 @@
+{
+  "metric_id": "crime_wayne_index_rate",
+  "metric_name": "Index Crime Rate",
+  "category": "crime",
+  "geography_type": "county",
+  "geography_id": "wayne_county",
+  "geography_name": "Wayne County",
+  "description": "Annual index crime rate per 100,000 residents in Wayne County.",
+  "available_since": 2007,
+  "comparable_since": 2007,
+  "last_year_available": 2024,
+  "frequency": "annual",
+  "unit": "incidents",
+  "rate_unit": "per_100k",
+  "default_chart_view": "all",
+  "default_measure": "rate",
+  "source_name": "NCSBI Crime in North Carolina annual summaries",
+  "sources": [
+    {
+      "name": "Crime in North Carolina - Annual Summaries",
+      "publisher": "North Carolina State Bureau of Investigation",
+      "url": "https://www.ncsbi.gov/Services/Crime-Statistics/Crime-in-North-Carolina-Annual-Summaries",
+      "notes": "Landing page for annual summaries and historical archive."
+    },
+    {
+      "name": "Crime Statistics overview",
+      "publisher": "North Carolina State Bureau of Investigation",
+      "url": "https://ncsbi.gov/Services/Crime-Statistics",
+      "notes": "Explains the 2018 reporting transition and conversion for long-term trend analysis."
+    },
+    {
+      "name": "2019 Annual Summary",
+      "publisher": "North Carolina State Bureau of Investigation",
+      "url": "https://www.ncsbi.gov/Services/SBI-Statistics/SBI-Uniform-Crime-Reports/2019-Annual-Summary.aspx",
+      "notes": "Wayne County row flags 2018 as partial-year data for over 50 percent of county population."
+    },
+    {
+      "name": "2024 Annual Summary",
+      "publisher": "North Carolina State Bureau of Investigation",
+      "url": "https://www.ncsbi.gov/Services/Crime-Statistics/Crime-in-North-Carolina-Annual-Summaries/2024-Annual-Summary.aspx",
+      "notes": "Latest county rates now wired into the project."
+    }
+  ],
+  "methodology_notes": "Values are the annual index crime rate per 100,000 residents reported in Table 6 of NCSBI's Crime in North Carolina annual summary reports.",
+  "comparability_notes": "North Carolina shifted local reporting to NIBRS on Jan. 1, 2018, but NCSBI states that it converts NIBRS data back into Summary Reporting System format for long-term trend analysis. Wayne County's 2018 county rate is specifically flagged in the 2019 annual summary as partial-year data for over 50 percent of the county population.",
+  "caveats": [
+    "These county series are rate-based; raw county counts still need to be added.",
+    "2018 should be interpreted cautiously because the 2019 annual summary flags partial-year data for over 50 percent of Wayne County's population.",
+    "Additional pre-2007 county annual summary reports should be added next from the historical archive."
+  ],
+  "series_breaks": [
+    {
+      "year": 2018,
+      "label": "Reporting transition to NIBRS",
+      "note": "NCSBI says it converts NIBRS data back into SRS format for long-term trend analysis, but some agencies may still see small differences in rates."
+    },
+    {
+      "year": 2018,
+      "label": "Wayne County partial-year flag",
+      "note": "The 2019 annual summary marks Wayne County's 2018 county rate as partial-year data for over 50 percent of the county population."
+    }
+  ],
+  "update_schedule": "Annual",
+  "last_updated": "2026-03-14"
+}

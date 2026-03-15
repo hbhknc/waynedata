@@ -1,0 +1,115 @@
+{
+  "metric_id": "crime_wayne_property_rate",
+  "points": [
+    {
+      "year": 2007,
+      "value": null,
+      "rate": 2737.6,
+      "comparable": true
+    },
+    {
+      "year": 2008,
+      "value": null,
+      "rate": 4784.9,
+      "comparable": true
+    },
+    {
+      "year": 2009,
+      "value": null,
+      "rate": 4344.1,
+      "comparable": true
+    },
+    {
+      "year": 2010,
+      "value": null,
+      "rate": 4442.9,
+      "comparable": true
+    },
+    {
+      "year": 2011,
+      "value": null,
+      "rate": 4240.4,
+      "comparable": true
+    },
+    {
+      "year": 2012,
+      "value": null,
+      "rate": 4023.2,
+      "comparable": true
+    },
+    {
+      "year": 2013,
+      "value": null,
+      "rate": 3710.9,
+      "comparable": true
+    },
+    {
+      "year": 2014,
+      "value": null,
+      "rate": 3406.3,
+      "comparable": true
+    },
+    {
+      "year": 2015,
+      "value": null,
+      "rate": 3605.6,
+      "comparable": true
+    },
+    {
+      "year": 2016,
+      "value": null,
+      "rate": 3124.9,
+      "comparable": true
+    },
+    {
+      "year": 2017,
+      "value": null,
+      "rate": 2899.5,
+      "comparable": true
+    },
+    {
+      "year": 2018,
+      "value": null,
+      "rate": 1785.2,
+      "comparable": true,
+      "partial": true,
+      "note": "Partial-year flagged in the 2019 annual summary."
+    },
+    {
+      "year": 2019,
+      "value": null,
+      "rate": 2722.2,
+      "comparable": true
+    },
+    {
+      "year": 2020,
+      "value": null,
+      "rate": 2431.2,
+      "comparable": true
+    },
+    {
+      "year": 2021,
+      "value": null,
+      "rate": 2338.7,
+      "comparable": true
+    },
+    {
+      "year": 2022,
+      "value": null,
+      "rate": 2497.7,
+      "comparable": true
+    },
+    {
+      "year": 2023,
+      "value": null,
+      "rate": 2987.1,
+      "comparable": true
+    },
+    {
+      "year": 2024,
+      "value": null,
+      "rate": 2804.9,
+      "comparable": true
+    }
+  ]
+}

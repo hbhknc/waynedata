@@ -1,0 +1,115 @@
+{
+  "metric_id": "crime_wayne_index_rate",
+  "points": [
+    {
+      "year": 2007,
+      "value": null,
+      "rate": 3047.2,
+      "comparable": true
+    },
+    {
+      "year": 2008,
+      "value": null,
+      "rate": 5271.3,
+      "comparable": true
+    },
+    {
+      "year": 2009,
+      "value": null,
+      "rate": 4791.9,
+      "comparable": true
+    },
+    {
+      "year": 2010,
+      "value": null,
+      "rate": 4960.8,
+      "comparable": true
+    },
+    {
+      "year": 2011,
+      "value": null,
+      "rate": 4694.5,
+      "comparable": true
+    },
+    {
+      "year": 2012,
+      "value": null,
+      "rate": 4465.9,
+      "comparable": true
+    },
+    {
+      "year": 2013,
+      "value": null,
+      "rate": 4102.5,
+      "comparable": true
+    },
+    {
+      "year": 2014,
+      "value": null,
+      "rate": 3779.6,
+      "comparable": true
+    },
+    {
+      "year": 2015,
+      "value": null,
+      "rate": 4100.8,
+      "comparable": true
+    },
+    {
+      "year": 2016,
+      "value": null,
+      "rate": 3566.9,
+      "comparable": true
+    },
+    {
+      "year": 2017,
+      "value": null,
+      "rate": 3283.6,
+      "comparable": true
+    },
+    {
+      "year": 2018,
+      "value": null,
+      "rate": 2005.2,
+      "comparable": true,
+      "partial": true,
+      "note": "Partial-year flagged in the 2019 annual summary."
+    },
+    {
+      "year": 2019,
+      "value": null,
+      "rate": 3136.4,
+      "comparable": true
+    },
+    {
+      "year": 2020,
+      "value": null,
+      "rate": 2915.9,
+      "comparable": true
+    },
+    {
+      "year": 2021,
+      "value": null,
+      "rate": 2813.0,
+      "comparable": true
+    },
+    {
+      "year": 2022,
+      "value": null,
+      "rate": 3003.6,
+      "comparable": true
+    },
+    {
+      "year": 2023,
+      "value": null,
+      "rate": 3604.1,
+      "comparable": true
+    },
+    {
+      "year": 2024,
+      "value": null,
+      "rate": 3378.9,
+      "comparable": true
+    }
+  ]
+}

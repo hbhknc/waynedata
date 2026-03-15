@@ -1,0 +1,37 @@
+---
+import MetricPageLayout from '../../../layouts/MetricPageLayout.astro';
+import LongTermMetricChart from '../../../components/charts/LongTermMetricChart';
+import RecentMetricChart from '../../../components/charts/RecentMetricChart';
+
+import meta from '../../../data/crime/wayne-county/violent-crime.meta.json';
+import series from '../../../data/crime/wayne-county/violent-crime.series.json';
+import summary from '../../../data/crime/wayne-county/violent-crime.summary.json';
+---
+
+<MetricPageLayout
+  title="Violent Crime in Wayne County"
+  intro="Official annual violent crime rates per 100,000 residents for Wayne County, wired from NCSBI annual summary tables so recent movement can be read against a longer county history."
+  meta={meta}
+  summary={summary}
+>
+  <Fragment slot="primary-chart">
+    <LongTermMetricChart
+      client:load
+      title="Long-term annual rate"
+      series={series.points}
+      seriesBreaks={meta.series_breaks}
+      defaultMeasure={meta.default_measure}
+      defaultView={meta.default_chart_view}
+    />
+  </Fragment>
+
+  <Fragment slot="secondary-chart">
+    <RecentMetricChart
+      client:load
+      title="Recent detail"
+      series={series.points}
+      years={5}
+      defaultMeasure={meta.default_measure}
+    />
+  </Fragment>
+</MetricPageLayout>

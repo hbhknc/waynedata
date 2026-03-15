@@ -1,0 +1,8 @@
+---
+const { sentence } = Astro.props;
+---
+
+<section class="historical-interpretation">
+  <h2>Historical context</h2>
+  <p>{sentence ?? 'Recent changes should be read in the context of the full comparable historical series.'}</p>
+</section>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionCard from '../../components/SectionCard.astro';
+
+const reportTypes = [
+  {
+    title: 'Monthly Wayne Public Safety Brief',
+    description: 'A recurring summary of the most notable changes in county and municipal public safety data.'
+  },
+  {
+    title: 'Quarterly municipality review',
+    description: 'A compact comparison format for local jurisdictions, with restrained interpretation and source notes.'
+  },
+  {
+    title: 'Annual state of public safety report',
+    description: 'A longer-form year-in-review product that combines charts, documents, and methodology notes.'
+  }
+];
+---
+
+<BaseLayout title="Reports | Wayne Public Safety Monitor" description="Reports and briefings scaffold.">
+  <PageHero
+    eyebrow="Reports"
+    title="Reports and briefings"
+    intro="Use this section for recurring written analysis that helps readers interpret the numbers without turning the site into a blog-first product."
+  />
+
+  <section class="section">
+    <div class="container grid">
+      {reportTypes.map((report) => <SectionCard {...report} />)}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,33 @@
+{
+  "metric_id": "crime_wayne_violent_rate",
+  "current_year": 2024,
+  "current_value": null,
+  "current_rate": 574.0,
+  "previous_year": 2023,
+  "previous_value": null,
+  "previous_rate": 616.9,
+  "yoy_change_pct": -7.0,
+  "five_year_change_pct": 38.6,
+  "ten_year_change_pct": 53.8,
+  "comparable_years_count": 18,
+  "long_term_average_value": null,
+  "long_term_median_value": null,
+  "long_term_average_rate": 446.4,
+  "long_term_median_rate": 451.0,
+  "peak_value": null,
+  "peak_year": 2023,
+  "peak_rate": 616.9,
+  "trough_value": null,
+  "trough_year": 2018,
+  "trough_rate": 219.9,
+  "rank_current_value": 2,
+  "percentile_current_value": 94.4,
+  "above_long_term_average_value": null,
+  "above_long_term_average_rate": true,
+  "status_badges": [
+    "Above long-term average",
+    "Second-highest year in series",
+    "2018 partial-year flag"
+  ],
+  "summary_sentence": "The 2024 violent crime rate fell from the 2023 spike but remained the second-highest value in the 2007\u20132024 series and well above Wayne County's long-term average."
+}

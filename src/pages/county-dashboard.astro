@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionCard from '../components/SectionCard.astro';
+import DataNotice from '../components/DataNotice.astro';
+
+import violentSummary from '../data/crime/wayne-county/violent-crime.summary.json';
+import indexSummary from '../data/crime/wayne-county/index-crime-rate.summary.json';
+import propertySummary from '../data/crime/wayne-county/property-crime-rate.summary.json';
+
+const dashboardSections = [
+  {
+    title: 'Crime overview',
+    description: 'Countywide offense trends, category splits, rates, and municipality comparisons.'
+  },
+  {
+    title: 'Fire & EMS overview',
+    description: 'Incident volume, call-type distribution, seasonal shifts, and service-area context.'
+  },
+  {
+    title: 'Budget & staffing overview',
+    description: 'High-level spending, staffing, vacancies, and department-by-department context.'
+  },
+  {
+    title: 'Accountability notes',
+    description: 'Source gaps, late filings, missing records, and methodological caveats.'
+  }
+];
+---
+
+<BaseLayout
+  title="County Dashboard | Wayne Public Safety Monitor"
+  description="Countywide public safety dashboard scaffold for Wayne County."
+>
+  <PageHero
+    eyebrow="County Dashboard"
+    title="Countywide dashboard scaffold"
+    intro="This page is the primary county snapshot. In the finished site, it should present the most important countywide public safety indicators with clear links to source material and methodology notes."
+  />
+
+  <section class="section">
+    <div class="container">
+      <DataNotice />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      {dashboardSections.map((section) => <SectionCard {...section} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__heading">
+        <div>
+          <h2>County crime modules in progress</h2>
+          <p>The county dashboard can already deep-link into the first three historical rate pages for Wayne County.</p>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <SectionCard
+          title={`Index crime rate: ${indexSummary.current_rate?.toLocaleString()}`}
+          description={indexSummary.summary_sentence}
+          href="/crime/wayne-county/index-crime-rate"
+          ctaLabel="Open metric page"
+        />
+        <SectionCard
+          title={`Violent crime rate: ${violentSummary.current_rate?.toLocaleString()}`}
+          description={violentSummary.summary_sentence}
+          href="/crime/wayne-county/violent-crime"
+          ctaLabel="Open metric page"
+        />
+        <SectionCard
+          title={`Property crime rate: ${propertySummary.current_rate?.toLocaleString()}`}
+          description={propertySummary.summary_sentence}
+          href="/crime/wayne-county/property-crime-rate"
+          ctaLabel="Open metric page"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

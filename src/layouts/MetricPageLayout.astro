@@ -1,0 +1,59 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import StatCard from '../components/ui/StatCard.astro';
+import BadgeList from '../components/ui/BadgeList.astro';
+import MetricMetaPanel from '../components/metrics/MetricMetaPanel.astro';
+import HistoricalInterpretation from '../components/metrics/HistoricalInterpretation.astro';
+import SourceList from '../components/metrics/SourceList.astro';
+import DataNotes from '../components/metrics/DataNotes.astro';
+import { formatSignedPercent } from '../lib/metrics';
+
+interface Props {
+  title: string;
+  intro: string;
+  meta: any;
+  summary: any;
+}
+
+const { title, intro, meta, summary } = Astro.props;
+
+const isRateMetric = meta.default_measure === 'rate';
+const currentLabel = isRateMetric ? 'Current rate' : 'Current value';
+const currentDisplay = isRateMetric
+  ? summary.current_rate?.toLocaleString() ?? '—'
+  : summary.current_value?.toLocaleString() ?? '—';
+const historicalPosition = summary.rank_current_value && summary.comparable_years_count
+  ? `${summary.rank_current_value} of ${summary.comparable_years_count}`
+  : '—';
+---
+
+<BaseLayout title={`${title} | Wayne Public Safety Monitor`} description={intro}>
+  <section class="container metric-page-header">
+    <p class="eyebrow">{meta.geography_name} · {meta.category.replace('_', ' & ')}</p>
+    <h1>{title}</h1>
+    <p class="metric-page-header__intro">{intro}</p>
+  </section>
+
+  <section class="container metric-layout-stack">
+    <MetricMetaPanel meta={meta} />
+
+    <BadgeList badges={summary.status_badges ?? []} />
+
+    <section class="metric-stats-grid">
+      <StatCard label="Current year" value={String(summary.current_year)} />
+      <StatCard label={currentLabel} value={currentDisplay} note={isRateMetric ? meta.rate_unit : undefined} />
+      <StatCard label="YoY change" value={formatSignedPercent(summary.yoy_change_pct)} />
+      <StatCard label="Historical position" value={historicalPosition} note="Rank within comparable series" />
+    </section>
+
+    <slot name="primary-chart" />
+
+    <HistoricalInterpretation sentence={summary.summary_sentence} />
+
+    <slot name="secondary-chart" />
+
+    <DataNotes meta={meta} />
+
+    <SourceList sources={meta.sources} />
+  </section>
+</BaseLayout>

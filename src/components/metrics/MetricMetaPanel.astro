@@ -1,0 +1,11 @@
+---
+const { meta } = Astro.props;
+---
+
+<section class="metric-meta-panel">
+  <div class="metric-meta-panel__item"><strong>Available since:</strong> {meta.available_since}</div>
+  <div class="metric-meta-panel__item"><strong>Comparable since:</strong> {meta.comparable_since}</div>
+  <div class="metric-meta-panel__item"><strong>Frequency:</strong> {meta.frequency}</div>
+  <div class="metric-meta-panel__item"><strong>Last updated:</strong> {meta.last_updated}</div>
+  <div class="metric-meta-panel__item"><strong>Source:</strong> {meta.source_name}</div>
+</section>

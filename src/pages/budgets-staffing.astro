@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionCard from '../components/SectionCard.astro';
+import DataNotice from '../components/DataNotice.astro';
+---
+
+<BaseLayout
+  title="Budgets & Staffing | Wayne Public Safety Monitor"
+  description="Budget and staffing section scaffold for Wayne County public safety agencies."
+>
+  <PageHero
+    eyebrow="Budgets & Staffing"
+    title="Public safety resources and capacity"
+    intro="This section should connect public safety spending and staffing levels to the rest of the site. It is likely to become one of the most distinctive and valuable parts of the project."
+  />
+
+  <section class="section">
+    <div class="container two-col">
+      <SectionCard
+        title="Recommended launch modules"
+        description="Begin with the clearest, most replicable budget and staffing views."
+      >
+        <ul>
+          <li>Department-level spending totals by year</li>
+          <li>Year-over-year change summaries</li>
+          <li>Authorized positions versus filled positions</li>
+          <li>Vacancy notes where source records support them</li>
+          <li>Budget document library links</li>
+        </ul>
+      </SectionCard>
+
+      <SectionCard
+        title="Why this section matters"
+        description="Residents often see reported incidents but not the underlying resource picture. This page helps close that gap."
+      >
+        <ul>
+          <li>Lets readers connect spending to trends over time.</li>
+          <li>Supports municipality and county comparisons.</li>
+          <li>Creates a natural home for public budget source documents.</li>
+          <li>Strengthens the accountability function of the site.</li>
+        </ul>
+      </SectionCard>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <DataNotice title="Budget and staffing placeholder" />
+    </div>
+  </section>
+</BaseLayout>

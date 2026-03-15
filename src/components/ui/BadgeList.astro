@@ -1,0 +1,15 @@
+---
+interface Props {
+  badges?: string[];
+}
+
+const { badges = [] } = Astro.props;
+---
+
+{badges.length > 0 && (
+  <section class="metric-badges" aria-label="Metric status badges">
+    {badges.map((badge) => (
+      <span class="metric-badge">{badge}</span>
+    ))}
+  </section>
+)}

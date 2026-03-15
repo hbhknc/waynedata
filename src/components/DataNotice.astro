@@ -1,0 +1,15 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'Data status' } = Astro.props;
+---
+
+<div class="data-notice" role="note" aria-label={title}>
+  <p class="data-notice__title">{title}</p>
+  <p>
+    This starter build does not include live or cleaned public safety datasets yet. Replace the placeholder content with
+    source-linked data before publishing the site publicly.
+  </p>
+</div>

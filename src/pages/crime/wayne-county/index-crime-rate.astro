@@ -1,0 +1,37 @@
+---
+import MetricPageLayout from "../../../layouts/MetricPageLayout.astro";
+import LongTermMetricChart from "../../../components/charts/LongTermMetricChart";
+import RecentMetricChart from "../../../components/charts/RecentMetricChart";
+
+import meta from "../../../data/crime/wayne-county/index-crime-rate.meta.json";
+import series from "../../../data/crime/wayne-county/index-crime-rate.series.json";
+import summary from "../../../data/crime/wayne-county/index-crime-rate.summary.json";
+---
+
+<MetricPageLayout
+  title="Index Crime Rate in Wayne County"
+  intro="Long-term trend, recent movement, and historical context for the overall index crime rate in Wayne County."
+  meta={meta}
+  summary={summary}
+>
+  <Fragment slot="primary-chart">
+    <LongTermMetricChart
+      client:load
+      title="Long-term annual trend"
+      series={series.points}
+      seriesBreaks={meta.series_breaks}
+      defaultMeasure={meta.default_measure}
+      defaultView={meta.default_chart_view}
+    />
+  </Fragment>
+
+  <Fragment slot="secondary-chart">
+    <RecentMetricChart
+      client:load
+      title="Recent detail"
+      series={series.points}
+      years={5}
+      defaultMeasure={meta.default_measure}
+    />
+  </Fragment>
+</MetricPageLayout>

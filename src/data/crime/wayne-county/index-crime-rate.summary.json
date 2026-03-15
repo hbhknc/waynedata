@@ -1,0 +1,33 @@
+{
+  "metric_id": "crime_wayne_index_rate",
+  "current_year": 2024,
+  "current_value": null,
+  "current_rate": 3378.9,
+  "previous_year": 2023,
+  "previous_value": null,
+  "previous_rate": 3604.1,
+  "yoy_change_pct": -6.2,
+  "five_year_change_pct": 15.9,
+  "ten_year_change_pct": -10.6,
+  "comparable_years_count": 18,
+  "long_term_average_value": null,
+  "long_term_median_value": null,
+  "long_term_average_rate": 3717.9,
+  "long_term_median_rate": 3585.5,
+  "peak_value": null,
+  "peak_year": 2008,
+  "peak_rate": 5271.3,
+  "trough_value": null,
+  "trough_year": 2018,
+  "trough_rate": 2005.2,
+  "rank_current_value": 11,
+  "percentile_current_value": 41.2,
+  "above_long_term_average_value": null,
+  "above_long_term_average_rate": false,
+  "status_badges": [
+    "Below long-term average",
+    "Lower than 2023",
+    "2018 partial-year flag"
+  ],
+  "summary_sentence": "The 2024 index crime rate fell from 2023 and remained below Wayne County's 2007\u20132024 average, though it stayed above the 2021\u20132022 low period. The 2018 value is flagged as partial-year data and should be read cautiously."
+}

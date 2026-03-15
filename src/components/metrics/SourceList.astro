@@ -1,0 +1,22 @@
+---
+const { sources = [] } = Astro.props;
+---
+
+<section class="metric-section">
+  <h2>Sources</h2>
+  <ul>
+    {sources.map((source: any) => (
+      <li>
+        {source.file_path ? (
+          <a href={source.file_path}>{source.name}</a>
+        ) : source.url ? (
+          <a href={source.url} rel="noreferrer" target="_blank">{source.name}</a>
+        ) : (
+          source.name
+        )}
+        {source.publisher ? ` — ${source.publisher}` : ''}
+        {source.notes ? ` (${source.notes})` : ''}
+      </li>
+    ))}
+  </ul>
+</section>

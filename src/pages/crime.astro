@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionCard from '../components/SectionCard.astro';
+import DataNotice from '../components/DataNotice.astro';
+
+import violentSummary from '../data/crime/wayne-county/violent-crime.summary.json';
+import indexSummary from '../data/crime/wayne-county/index-crime-rate.summary.json';
+import propertySummary from '../data/crime/wayne-county/property-crime-rate.summary.json';
+---
+
+<BaseLayout title="Crime | Wayne Public Safety Monitor" description="Crime section scaffold for Wayne County.">
+  <PageHero
+    eyebrow="Crime"
+    title="Crime trends and comparisons"
+    intro="Use this section for countywide crime trend charts, offense-category breakdowns, municipality comparisons, and plain-language analysis explaining what changed over time."
+  />
+
+  <section class="section">
+    <div class="container two-col">
+      <SectionCard
+        title="Recommended launch modules"
+        description="Build this section around a small number of defensible, high-value views before expanding into more granular breakdowns."
+      >
+        <ul>
+          <li>Countywide trend lines by year</li>
+          <li>Violent versus property crime</li>
+          <li>Per-capita municipality comparisons</li>
+          <li>Top offense categories</li>
+          <li>Data caveats and changes in reporting practices</li>
+        </ul>
+      </SectionCard>
+
+      <SectionCard
+        title="Editorial guardrails"
+        description="Keep the framing analytical rather than sensational. Distinguish clearly between incident counts, rates, and interpretation."
+      >
+        <ul>
+          <li>Avoid headline language that overstates short-term swings.</li>
+          <li>Call out missing or inconsistent reporting.</li>
+          <li>Use rates carefully when denominators are small.</li>
+          <li>Link each metric back to a source record or dataset.</li>
+        </ul>
+      </SectionCard>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <DataNotice title="Crime data status" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__heading">
+        <div>
+          <h2>Wayne County rate series now wired</h2>
+          <p>The county crime section now includes three official NCSBI annual rate series with shared historical-context handling and the 2018 partial-year flag carried through to each relevant page.</p>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <SectionCard
+          title="Violent crime rate"
+          description={violentSummary.summary_sentence}
+          href="/crime/wayne-county/violent-crime"
+          ctaLabel="Open metric page"
+        />
+        <SectionCard
+          title="Index crime rate"
+          description={indexSummary.summary_sentence}
+          href="/crime/wayne-county/index-crime-rate"
+          ctaLabel="Open metric page"
+        />
+        <SectionCard
+          title="Property crime rate"
+          description={propertySummary.summary_sentence}
+          href="/crime/wayne-county/property-crime-rate"
+          ctaLabel="Open metric page"
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

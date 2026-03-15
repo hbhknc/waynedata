@@ -1,0 +1,23 @@
+---
+const { meta } = Astro.props;
+---
+
+<section class="metric-section">
+  <h2>How to read this data</h2>
+  <ul>
+    <li>Data is available back to {meta.available_since}.</li>
+    <li>The comparable series begins in {meta.comparable_since}.</li>
+    <li>{meta.comparability_notes}</li>
+    <li>{meta.methodology_notes}</li>
+  </ul>
+  {meta.caveats?.length > 0 && (
+    <>
+      <h3>Notes and caveats</h3>
+      <ul>
+        {meta.caveats.map((item: string) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </>
+  )}
+</section>
