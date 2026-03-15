@@ -6,7 +6,7 @@ import { buildSeriesChart, formatNumber } from '../lib/terminalChart';
 const charts = [
   {
     title: 'Graduation rate',
-    subtitle: '4-year cohort completion',
+    subtitle: '4-year cohort completion (0-100% scale)',
     chart: buildSeriesChart(
       [
         { label: '2019', value: 85.7 },
@@ -21,7 +21,7 @@ const charts = [
   },
   {
     title: 'Reading proficiency',
-    subtitle: 'Grade-level benchmark, district aggregate',
+    subtitle: 'Grade-level benchmark, district aggregate (0-100% scale)',
     chart: buildSeriesChart(
       [
         { label: '2019', value: 54 },
@@ -36,7 +36,7 @@ const charts = [
   },
   {
     title: 'Math proficiency',
-    subtitle: 'Grade-level benchmark, district aggregate',
+    subtitle: 'Grade-level benchmark, district aggregate (0-100% scale)',
     chart: buildSeriesChart(
       [
         { label: '2019', value: 50 },
@@ -51,7 +51,7 @@ const charts = [
   },
   {
     title: 'Chronic absenteeism',
-    subtitle: 'Students missing 10%+ instructional days',
+    subtitle: 'Students missing 10%+ instructional days (0-100% scale)',
     chart: buildSeriesChart(
       [
         { label: '2019', value: 19 },
@@ -71,7 +71,7 @@ const charts = [
   <PageShell
     section="Education"
     title="Education outcomes"
-    intro="Four district-level indicators to track momentum and gaps."
+    intro="Four district-level indicators to track momentum and gaps. All bars are scaled against a 0-100% baseline."
     charts={charts}
   />
 </BaseLayout>
