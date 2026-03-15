@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+import { buildSeriesChart, formatNumber } from '../lib/terminalChart';
+
+const charts = [
+  {
+    title: 'Graduation rate',
+    subtitle: '4-year cohort completion (0-100% scale)',
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 85.7 },
+        { label: '2020', value: 86.2 },
+        { label: '2021', value: 87.9 },
+        { label: '2022', value: 88.4 },
+        { label: '2023', value: 88.9 }
+      ],
+      (value) => `${formatNumber(value, 1)}%`,
+      { min: 0, max: 100 }
+    )
+  },
+  {
+    title: 'Reading proficiency',
+    subtitle: 'Grade-level benchmark, district aggregate (0-100% scale)',
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 54 },
+        { label: '2020', value: 49 },
+        { label: '2021', value: 52 },
+        { label: '2022', value: 55 },
+        { label: '2023', value: 56 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`,
+      { min: 0, max: 100 }
+    )
+  },
+  {
+    title: 'Math proficiency',
+    subtitle: 'Grade-level benchmark, district aggregate (0-100% scale)',
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 50 },
+        { label: '2020', value: 44 },
+        { label: '2021', value: 46 },
+        { label: '2022', value: 49 },
+        { label: '2023', value: 51 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`,
+      { min: 0, max: 100 }
+    )
+  },
+  {
+    title: 'Chronic absenteeism',
+    subtitle: 'Students missing 10%+ instructional days (0-100% scale)',
+    chart: buildSeriesChart(
+      [
+        { label: '2019', value: 19 },
+        { label: '2020', value: 23 },
+        { label: '2021', value: 26 },
+        { label: '2022', value: 24 },
+        { label: '2023', value: 21 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`,
+      { min: 0, max: 100 }
+    )
+  }
+];
+---
+
+<BaseLayout title="Education | Wayne Data Terminal" description="Education dashboard with four charts.">
+  <PageShell
+    section="Education"
+    title="Education outcomes"
+    intro="Four district-level indicators to track momentum and gaps. All bars are scaled against a 0-100% baseline."
+    charts={charts}
+  />
+</BaseLayout>

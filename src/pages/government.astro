@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+import { buildSeriesChart, formatNumber } from '../lib/terminalChart';
+
+const charts = [
+  {
+    title: 'County general fund',
+    subtitle: 'Adopted budget in millions',
+    chart: buildSeriesChart(
+      [
+        { label: 'FY20', value: 122 },
+        { label: 'FY21', value: 126 },
+        { label: 'FY22', value: 131 },
+        { label: 'FY23', value: 137 },
+        { label: 'FY24', value: 142 }
+      ],
+      (value) => `$${formatNumber(value, 0)}m`
+    )
+  },
+  {
+    title: 'Public safety share',
+    subtitle: 'Share of county budget',
+    chart: buildSeriesChart(
+      [
+        { label: 'FY20', value: 36.0 },
+        { label: 'FY21', value: 36.5 },
+        { label: 'FY22', value: 36.8 },
+        { label: 'FY23', value: 37.1 },
+        { label: 'FY24', value: 38.0 }
+      ],
+      (value) => `${formatNumber(value, 1)}%`
+    )
+  },
+  {
+    title: 'Staff vacancy rate',
+    subtitle: 'Sheriff, EMS, and detention roles',
+    chart: buildSeriesChart(
+      [
+        { label: '2020', value: 8.2 },
+        { label: '2021', value: 10.4 },
+        { label: '2022', value: 12.8 },
+        { label: '2023', value: 11.9 },
+        { label: '2024', value: 10.7 }
+      ],
+      (value) => `${formatNumber(value, 1)}%`
+    )
+  },
+  {
+    title: 'Capital project delivery',
+    subtitle: 'Projects completed on schedule',
+    chart: buildSeriesChart(
+      [
+        { label: 'FY20', value: 45 },
+        { label: 'FY21', value: 50 },
+        { label: 'FY22', value: 56 },
+        { label: 'FY23', value: 57 },
+        { label: 'FY24', value: 60 }
+      ],
+      (value) => `${formatNumber(value, 0)}%`
+    )
+  }
+];
+---
+
+<BaseLayout title="Government | Wayne Data Terminal" description="Government dashboard with four charts.">
+  <PageShell
+    section="Government"
+    title="Government performance"
+    intro="Budget, staffing, and execution metrics in plain terminal form."
+    charts={charts}
+  />
+</BaseLayout>
