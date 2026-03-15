@@ -1,0 +1,28 @@
+---
+import TerminalChart from './TerminalChart.astro';
+
+interface ChartItem {
+  title: string;
+  subtitle: string;
+  chart: string;
+}
+
+interface Props {
+  section: string;
+  title: string;
+  intro: string;
+  charts: ChartItem[];
+}
+
+const { section, title, intro, charts } = Astro.props;
+---
+
+<section class="page-head container">
+  <p class="section-label">{section}</p>
+  <h1>{title}</h1>
+  <p>{intro}</p>
+</section>
+
+<section class="container chart-grid">
+  {charts.slice(0, 4).map((chart) => <TerminalChart {...chart} />)}
+</section>

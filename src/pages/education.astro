@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+
+const charts = [
+  {
+    title: 'Graduation rate',
+    subtitle: '4-year cohort completion',
+    chart: `2019 | 85.7%\n2020 | 86.2%\n2021 | 87.9%\n2022 | 88.4%\n2023 | 88.9%`
+  },
+  {
+    title: 'Reading proficiency',
+    subtitle: 'Grade-level benchmark, district aggregate',
+    chart: `2019 | ███████████ 54%\n2020 | █████████▉ 49%\n2021 | ██████████▍ 52%\n2022 | ███████████ 55%\n2023 | ███████████▎ 56%`
+  },
+  {
+    title: 'Math proficiency',
+    subtitle: 'Grade-level benchmark, district aggregate',
+    chart: `2019 | ██████████ 50%\n2020 | ████████▊ 44%\n2021 | █████████▏ 46%\n2022 | █████████▊ 49%\n2023 | ██████████▎ 51%`
+  },
+  {
+    title: 'Chronic absenteeism',
+    subtitle: 'Students missing 10%+ instructional days',
+    chart: `2019 | 19%\n2020 | 23%\n2021 | 26%\n2022 | 24%\n2023 | 21%`
+  }
+];
+---
+
+<BaseLayout title="Education | Wayne Data Terminal" description="Education dashboard with four charts.">
+  <PageShell
+    section="Education"
+    title="Education outcomes"
+    intro="Four district-level indicators to track momentum and gaps."
+    charts={charts}
+  />
+</BaseLayout>

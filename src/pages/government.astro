@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+
+const charts = [
+  {
+    title: 'County general fund',
+    subtitle: 'Adopted budget in millions',
+    chart: `FY20 | $122m\nFY21 | $126m\nFY22 | $131m\nFY23 | $137m\nFY24 | $142m`
+  },
+  {
+    title: 'Public safety share',
+    subtitle: 'Share of county budget',
+    chart: `FY20 | ███████████ 36%\nFY21 | ███████████▏ 36.5%\nFY22 | ███████████▎ 36.8%\nFY23 | ███████████▍ 37.1%\nFY24 | ███████████▋ 38%`
+  },
+  {
+    title: 'Staff vacancy rate',
+    subtitle: 'Sheriff, EMS, and detention roles',
+    chart: `2020 | 8.2%\n2021 | 10.4%\n2022 | 12.8%\n2023 | 11.9%\n2024 | 10.7%`
+  },
+  {
+    title: 'Capital project delivery',
+    subtitle: 'Projects completed on schedule',
+    chart: `FY20 | █████████ 45%\nFY21 | ██████████ 50%\nFY22 | ███████████ 56%\nFY23 | ███████████▎ 57%\nFY24 | ████████████ 60%`
+  }
+];
+---
+
+<BaseLayout title="Government | Wayne Data Terminal" description="Government dashboard with four charts.">
+  <PageShell
+    section="Government"
+    title="Government performance"
+    intro="Budget, staffing, and execution metrics in plain terminal form."
+    charts={charts}
+  />
+</BaseLayout>
