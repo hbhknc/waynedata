@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  chart: string;
+}
+
+const { title, subtitle, chart } = Astro.props;
+---
+
+<article class="chart-card">
+  <header>
+    <h2>{title}</h2>
+    <p>{subtitle}</p>
+  </header>
+  <pre>{chart}</pre>
+</article>
