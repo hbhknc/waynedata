@@ -17,7 +17,7 @@ const { municipality } = Astro.props;
 
 <BaseLayout
   title={`${municipality.name} | Wayne Public Safety Monitor`}
-  description={`${municipality.name} public safety profile scaffold.`}
+  description={`${municipality.name} public safety profile.`}
 >
   <PageHero
     eyebrow="Municipality profile"
@@ -27,7 +27,7 @@ const { municipality } = Astro.props;
 
   <section class="section">
     <div class="container">
-      <DataNotice title="Municipality page placeholder" />
+      <DataNotice title="Municipality data status" />
     </div>
   </section>
 
@@ -44,7 +44,8 @@ const { municipality } = Astro.props;
       <SectionCard title="Rollout status">
         <p>{municipality.status}</p>
         <p>
-          Replace this placeholder with municipality-specific charts, source links, methodology notes, and any local budget or service-coverage context.
+          This profile expands over time with municipality-specific charts, source links, methodology notes, and local
+          budget or service-coverage context.
         </p>
       </SectionCard>
     </div>
