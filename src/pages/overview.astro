@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../components/PageShell.astro';
+
+const charts = [
+  {
+    title: 'Population pulse',
+    subtitle: 'Estimated county population (2019-2023)',
+    chart: `2019 | ████████████████████ 117k\n2020 | ███████████████████▉ 116k\n2021 | ███████████████████▊ 116k\n2022 | ███████████████████▋ 115k\n2023 | ███████████████████▌ 115k`
+  },
+  {
+    title: 'Median household income',
+    subtitle: 'Inflation-adjusted estimate',
+    chart: `2019 | $49,100\n2020 | $50,800\n2021 | $52,100\n2022 | $53,700\n2023 | $54,200`
+  },
+  {
+    title: 'Unemployment trend',
+    subtitle: 'Annual average unemployment rate',
+    chart: `2019 | 4.0%\n2020 | 7.9%\n2021 | 5.1%\n2022 | 4.2%\n2023 | 4.1%`
+  },
+  {
+    title: 'Housing burden',
+    subtitle: 'Share of renters paying >30% income on housing',
+    chart: `2019 | ████████████ 45%\n2020 | ████████████▎ 46%\n2021 | ████████████▋ 47%\n2022 | █████████████ 48%\n2023 | █████████████▍ 49%`
+  }
+];
+---
+
+<BaseLayout title="Overview | Wayne Data Terminal" description="Topline snapshot for Wayne County.">
+  <PageShell
+    section="Overview"
+    title="Wayne County at a glance"
+    intro="Minimal dashboards. No decoration. Just four reference charts for local conditions and trend direction."
+    charts={charts}
+  />
+</BaseLayout>
